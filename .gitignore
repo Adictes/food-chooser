@@ -18,3 +18,7 @@ vendor/bootstrap
 
 # Google API key
 api-key
+
+# SSL certificate
+server.crt
+server.key

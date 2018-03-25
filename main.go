@@ -16,7 +16,7 @@ func main() {
 
 	router.GET("/", middleware.AccessLog(handlers.Index))
 
-	err := http.ListenAndServe(":8080", router)
+	err := http.ListenAndServeTLS(":10443", "server.crt", "server.key", router)
 	if err != nil {
 		log.Fatal("ListenAndServe:", err)
 	}
