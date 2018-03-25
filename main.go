@@ -11,6 +11,9 @@ import (
 
 func main() {
 	router := httprouter.New()
+
+	router.ServeFiles("/vendor/bootstrap/*filepath", http.Dir("vendor/bootstrap/"))
+
 	router.GET("/", middleware.AccessLog(handlers.Index))
 
 	err := http.ListenAndServe(":8080", router)
