@@ -1,0 +1,25 @@
+{
+	"comment": "",
+	"ignore": "test",
+	"package": [
+		{
+			"checksumSHA1": "T+kh2poktvucf6QrY3nRo09otto=",
+			"path": "github.com/julienschmidt/httprouter",
+			"revision": "d1898390779332322e6b5ca5011da4bf249bb056",
+			"revisionTime": "2018-02-22T16:05:26Z"
+		},
+		{
+			"checksumSHA1": "XDWoWtyCu5KzFmO2RUL5tObU16U=",
+			"path": "googlemaps.github.io/maps",
+			"revision": "45d833324080b376851477bc2479eea067d3167e",
+			"revisionTime": "2018-03-25T03:19:12Z"
+		},
+		{
+			"checksumSHA1": "T47E4DD/+UCGq0rAc70yGCEWJ0w=",
+			"path": "googlemaps.github.io/maps/internal",
+			"revision": "45d833324080b376851477bc2479eea067d3167e",
+			"revisionTime": "2018-03-25T03:19:12Z"
+		}
+	],
+	"rootPath": "github.com/Adictes/food-chooser"
+}
