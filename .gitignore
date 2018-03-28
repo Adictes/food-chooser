@@ -14,4 +14,4 @@
 .glide/
 
 # Vendor files
-vendor/[bg]*
+vendor/*
