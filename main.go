@@ -3,6 +3,7 @@ package main
 import (
 	"log"
 	"net/http"
+	"os"
 
 	"github.com/Adictes/food-chooser/handlers"
 	"github.com/Adictes/food-chooser/middleware"
@@ -16,7 +17,12 @@ func main() {
 
 	router.GET("/", middleware.AccessLog(handlers.Index))
 
-	err := http.ListenAndServe(":8080", router)
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080"
+	}
+
+	err := http.ListenAndServe(":"+port, router)
 	if err != nil {
 		log.Fatal("ListenAndServe:", err)
 	}
