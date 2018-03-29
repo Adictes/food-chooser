@@ -6,12 +6,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../vendor/bootstrap/bootstrap.min.css">
-    <link rel="stylesheet" href="../assets/css/index.css">
     <title>Food chooser</title>
+    <style>
+        #map {
+            height: 100%;
+        }
+
+        @media screen and (min-width: 300px) {
+            #map-container {
+                height: 600px;
+            }
+        }
+
+        @media screen and (max-width: 300px) {
+            #map-container {
+                height: 150px;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <div class="container">
+    <div class="container mt-1">
         <div class="row justify-content-center">
             <div class="column">
                 <form action="">
@@ -23,12 +39,8 @@
             </div>
         </div>
     </div>
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="column">
-                <div id="map"></div>
-            </div>
-        </div>
+    <div id="map-container" class="container mt-5">
+        <div id="map"></div>
     </div>
 
     <script>
