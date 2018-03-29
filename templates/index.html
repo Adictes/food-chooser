@@ -12,15 +12,21 @@
             height: 100%;
         }
 
-        @media screen and (min-width: 300px) {
+        @media (min-width: 900px) {
             #map-container {
-                height: 600px;
+                height: 850px;
             }
         }
 
-        @media screen and (max-width: 300px) {
+        @media (min-width: 600px) and (max-width: 900px) {
             #map-container {
-                height: 150px;
+                height: 550px;
+            }
+        }
+
+        @media (min-width: 300px) and (max-width: 600px) {
+            #map-container {
+                height: 250px;
             }
         }
     </style>
