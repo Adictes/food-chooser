@@ -1,16 +1,62 @@
 {{ define "index" }}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../vendor/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/index.css">
     <title>Food chooser</title>
 </head>
 
 <body>
-    <p class="lead">Hello, World!</p>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="column">
+                <form action="">
+                    <div class="input-group">
+                        <input class="form-control mr-2" type="text" name="request" id="request_field" placeholder="Что поесть?">
+                        <button class="btn btn-success btn-sm" type="submit">Поиск</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="column">
+                <div id="map"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function initMap() {
+            var map = new google.maps.Map(document.getElementById('map'), {
+                center: { lat: 53.3548, lng: 83.7698 },
+                zoom: 12
+            });
+
+            navigator.geolocation.getCurrentPosition(function (position) {
+                var pos = {
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude
+                };
+                map.setCenter(pos);
+
+                var marker = new google.maps.Marker({
+                    position: pos,
+                    map: map
+                });
+            }, function () {
+                console.log('Проблемы с геолокацией');
+            });
+        }
+    </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAjlaVCKC9i-xPZRNuKFAHBPNukxOaGE_o&callback=initMap">
+    </script>
+
 </body>
 
 </html>
