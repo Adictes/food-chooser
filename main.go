@@ -13,7 +13,7 @@ import (
 func main() {
 	router := httprouter.New()
 
-	router.ServeFiles("/vendor/bootstrap/*filepath", http.Dir("vendor/bootstrap/"))
+	router.ServeFiles("/assets/*filepath", http.Dir("assets/"))
 
 	router.GET("/", middleware.AccessLog(handlers.Index))
 
