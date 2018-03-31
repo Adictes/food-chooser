@@ -1,6 +1,6 @@
 function showMap() {
-    document.getElementById("row-container").style.height = "12vh";
-    document.getElementById("map-container").style.display = "block";
+    document.getElementById("row-container").style.height = "10vh";
+    document.getElementById("hidden-wrapper").style.display = "block";
 }
 
 function initMap() {
