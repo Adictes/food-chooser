@@ -16,8 +16,8 @@
             <div class="col my-auto">
                 <div id="form-container" class="mx-auto">
                     <div class="input-group">
-                        <input class="form-control" type="text" name="request" id="request_field" placeholder="Что поесть?" required>
-                        <button id="search_btn" class="ml-2 btn btn-success" type="button" onclick="showMap()">Поиск</button>
+                        <input class="form-control" type="text" name="request" id="request_field" placeholder="Что поесть?">
+                        <button id="search_btn" class="ml-2 btn btn-success" type="button" onclick="sendRequest()">Поиск</button>
                     </div>
                 </div>
             </div>
@@ -31,16 +31,13 @@
                 </div>
             </div>
             <div class="col-sm-5">
-                <ul class="list-group">
-                    <li class="list-group-item">Для проверочки</li>
-                    <li class="list-group-item">накидаем здесь</li>
-                    <li class="list-group-item">списочек</li>
+                <ul id="info-list" class="list-group">
                 </ul>
             </div>
         </div>
     </div>
     <script src="../assets/js/index.js"></script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAjlaVCKC9i-xPZRNuKFAHBPNukxOaGE_o&callback=initMap ">
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAjlaVCKC9i-xPZRNuKFAHBPNukxOaGE_o&language=ru&region=RU&callback=initMap">
     </script>
 </body>
 
