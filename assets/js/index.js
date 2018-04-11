@@ -1,4 +1,4 @@
-var frws = new WebSocket("ws://" + window.location.host + "/frws");
+var frws = new WebSocket("wss://" + window.location.host + "/frws");
 
 frws.onmessage = function(event) {
     var data = JSON.parse(event.data);

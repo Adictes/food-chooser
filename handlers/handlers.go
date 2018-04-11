@@ -16,8 +16,9 @@ import (
 var (
 	t        = template.Must(template.New("FC").ParseGlob("templates/*.html"))
 	upgrader = websocket.Upgrader{
-		ReadBufferSize:  1024,
-		WriteBufferSize: 1024,
+		ReadBufferSize:    1024,
+		WriteBufferSize:   1024,
+		EnableCompression: true,
 	}
 )
 
@@ -47,7 +48,6 @@ func FoodRequest(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 			log.Println("Read message:", err)
 			return
 		}
-		log.Println("Проверка на получение: ", string(msg))
 
 		slc := strings.Split(string(msg), "|")
 		lat, _ := strconv.ParseFloat(slc[0], 64)
