@@ -1,6 +1,6 @@
 var frws = new WebSocket("wss://" + window.location.host + "/frws");
 
-frws.onmessage = function(event) {
+frws.onmessage = function (event) {
     var data = JSON.parse(event.data);
     console.log(data);
 
@@ -19,7 +19,7 @@ frws.onmessage = function(event) {
 
 function sendRequest() {
     navigator.geolocation.getCurrentPosition(
-        function(position) {
+        function (position) {
             var pos = {
                 lat: position.coords.latitude,
                 lng: position.coords.longitude,
@@ -35,12 +35,25 @@ function sendRequest() {
                 query;
             frws.send(str);
         },
-        function() {
+        function (error) {
             var infoWindow = new google.maps.InfoWindow({
                 map: map,
-                content: "Error with fetching your geolocation.",
                 position: map.getCenter(),
             });
+            switch (error.code) {
+                case error.PERMISSION_DENIED:
+                    infoWindow.setContent("User denied the request for Geolocation.");
+                    break;
+                case error.POSITION_UNAVAILABLE:
+                    infoWindow.setContent("Location information is unavailable.")
+                    break;
+                case error.TIMEOUT:
+                    infoWindow.setContent("The request to get user location timed out.")
+                    break;
+                case error.UNKNOWN_ERROR:
+                    infoWindow.setContent("An unknown error occurred.")
+                    break;
+            }
             frws.send("error");
         }
     );
