@@ -48,6 +48,9 @@ func FoodRequest(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 			log.Println("Read message:", err)
 			return
 		}
+		if string(msg) == "error" {
+			return
+		}
 
 		slc := strings.Split(string(msg), "|")
 		lat, _ := strconv.ParseFloat(slc[0], 64)
