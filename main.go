@@ -14,7 +14,6 @@ func main() {
 	router := httprouter.New()
 
 	router.ServeFiles("/assets/*filepath", http.Dir("assets/"))
-	router.ServeFiles("/geoJSON/*filepath", http.Dir("geoJSON/"))
 
 	router.GET("/", middleware.AccessLog(handlers.Index))
 	router.GET("/frws", handlers.FoodRequest)
