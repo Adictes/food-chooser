@@ -15,7 +15,7 @@ func main() {
 
 	router.ServeFiles("/assets/*filepath", http.Dir("assets/"))
 
-	router.GET("/", middleware.AccessLog(handlers.Index))
+	router.GET("/", middleware.Adapt(handlers.Index, middleware.AccessLog()))
 	router.GET("/frws", handlers.FoodRequest)
 
 	port := os.Getenv("PORT")
