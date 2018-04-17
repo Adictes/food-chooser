@@ -5,6 +5,7 @@ import (
 	"html/template"
 	"log"
 	"net/http"
+	"sort"
 	"strconv"
 	"strings"
 
@@ -70,6 +71,19 @@ func FoodRequest(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 		if err != nil {
 			log.Println("TextSearch: ", err)
 		}
-		ws.WriteJSON(resp.Results)
+
+		sort.Slice(resp.Results, func(i, j int) bool {
+			return resp.Results[i].Rating > resp.Results[j].Rating
+		})
+
+		res := make([]maps.PlacesSearchResult, 0, 5)
+		for i := 0; i < 5; i++ {
+			if !resp.Results[i].PermanentlyClosed && *resp.Results[i].OpeningHours.OpenNow {
+				res = append(res, resp.Results[i])
+			} else {
+				i--
+			}
+		}
+		ws.WriteJSON(res)
 	}
 }
